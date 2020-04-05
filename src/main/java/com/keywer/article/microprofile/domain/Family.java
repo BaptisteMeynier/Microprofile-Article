@@ -1,6 +1,7 @@
 package com.keywer.article.microprofile.domain;
 
-import com.meynier.jakarta.domain.enums.WaterType;
+
+import com.keywer.article.microprofile.domain.enums.WaterType;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

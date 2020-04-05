@@ -4,21 +4,21 @@
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
 
-    <persistence-unit name="JPADemo" transaction-type="JTA">
-        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <class>com.meynier.jakarta.domain.Fish</class>
-        <class>com.meynier.jakarta.domain.Family</class>
-        <class>com.meynier.jakarta.domain.FishStockKey</class>
-        <class>com.meynier.jakarta.domain.Shop</class>
-        <class>com.meynier.jakarta.domain.Stock</class>
+    <persistence-unit name="kumuluzee-h2-jpa" transaction-type="JTA">
+        <jta-data-source>jdbc/FishsDS</jta-data-source>
+
+        <class>com.keywer.article.microprofile.domain.Family</class>
+        <class>com.keywer.article.microprofile.domain.Fish</class>
+
         <properties>
             <!-- Configuring The Database Connection Details -->
-            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE" />
             <property name="javax.persistence.jdbc.user" value="sa" />
             <property name="javax.persistence.jdbc.password" value="" />
             <property name="javax.persistence.sql-load-script-source" value="META-INF/data.sql"/>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="hibernate.show_sql" value="true"/>
         </properties>
 
     </persistence-unit>
