@@ -3,6 +3,8 @@ package com.keywer.article.microprofile.repository;
 
 import com.keywer.article.microprofile.domain.Family;
 import com.keywer.article.microprofile.domain.Fish;
+import com.kumuluz.ee.rest.beans.QueryParameters;
+import com.kumuluz.ee.rest.utils.JPAUtils;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -14,6 +16,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Named
 @ApplicationScoped
@@ -21,6 +24,16 @@ public class FishRepository {
 
     @PersistenceContext
     private EntityManager entityManager;
+
+
+    public List<Fish> getFishs(QueryParameters query) {
+        return JPAUtils.queryEntities(entityManager, Fish.class, query);
+    }
+
+
+    public Long getFishsCount(QueryParameters query) {
+        return JPAUtils.queryEntitiesCount(entityManager, Fish.class, query);
+    }
 
 
     //----- NAMED QUERY -----//

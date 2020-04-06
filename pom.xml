@@ -20,6 +20,8 @@
     <kumuluzee-health.version>2.2.0</kumuluzee-health.version>
     <kumuluzee-config.version>1.4.0</kumuluzee-config.version>
     <kumuluzee-metrics.version>2.3.0</kumuluzee-metrics.version>
+    <kumuluzee-openapi-mp.version>1.1.2</kumuluzee-openapi-mp.version>
+    <kumuluzee-rest.version>1.2.3</kumuluzee-rest.version>
   </properties>
 
   <dependencyManagement>
@@ -67,6 +69,17 @@
       <groupId>com.kumuluz.ee</groupId>
       <artifactId>kumuluzee-jax-rs-jersey</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.kumuluz.ee.openapi</groupId>
+      <artifactId>kumuluzee-openapi-mp</artifactId>
+      <version>${kumuluzee-openapi-mp.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.kumuluz.ee.rest</groupId>
+      <artifactId>kumuluzee-rest-core</artifactId>
+      <version>${kumuluzee-rest.version}</version>
+    </dependency>
+    <!-- CLOUD -->
     <dependency>
       <groupId>com.kumuluz.ee.health</groupId>
       <artifactId>kumuluzee-health</artifactId>
