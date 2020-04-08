@@ -12,7 +12,7 @@ public class RestProducer {
     public QueryStringDefaults getQueryStringDefaults() {
         return new QueryStringDefaults()
                 .maxLimit(100)
-                .defaultLimit(20)
+                .defaultLimit(10)
                 .defaultOffset(0);
     }
 }

@@ -21,7 +21,6 @@ import java.util.List;
 @Path("fish")
 @ApplicationScoped
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 public class FishResource {
 
     private static final String X_TOTAL_COUNT = "X-Total-Count";

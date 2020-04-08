@@ -1,14 +1,14 @@
 package com.keywer.article.microprofile.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.Objects;
 
 @Entity
 @NamedQueries({
@@ -32,6 +32,7 @@ public class Fish implements Serializable {
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="family_fk")
+    @JsonIgnore
     private Family family;
 
     public long getId() {

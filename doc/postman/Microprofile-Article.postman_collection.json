@@ -1,0 +1,52 @@
+{
+	"info": {
+		"_postman_id": "c6141dc5-3d29-49b7-bb7a-cd0848356e15",
+		"name": "Microprofile-Article",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fish",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/shop/fish",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shop",
+						"fish"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Family",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/shop/fish/family/Sphyrnidae",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shop",
+						"fish",
+						"family",
+						"Sphyrnidae"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

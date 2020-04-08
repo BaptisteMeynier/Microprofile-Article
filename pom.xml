@@ -16,7 +16,7 @@
     <java.version>11</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
-    <kumuluzee.version>3.8.0</kumuluzee.version>
+    <kumuluzee.version>3.9.0</kumuluzee.version>
     <kumuluzee-health.version>2.2.0</kumuluzee-health.version>
     <kumuluzee-config.version>1.4.0</kumuluzee-config.version>
     <kumuluzee-metrics.version>2.3.0</kumuluzee-metrics.version>
