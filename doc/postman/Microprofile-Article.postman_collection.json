@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/shop/fish",
+					"raw": "http://localhost:8080/shop/fish?offset=10&limit=5&order=name DESC",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -20,6 +20,20 @@
 					"path": [
 						"shop",
 						"fish"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "10"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "order",
+							"value": "name DESC"
+						}
 					]
 				}
 			},
