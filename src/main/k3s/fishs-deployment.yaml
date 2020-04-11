@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fish-deployment
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fish
+  template:
+    metadata:
+      labels:
+        app: fish
+    spec:
+      containers:
+        - image: keywer/k3s-fishs:v1.0.0
+          name: k3s-fishs
+          ports:
+            - containerPort: 8080
+              name: server
+              protocol: TCP
