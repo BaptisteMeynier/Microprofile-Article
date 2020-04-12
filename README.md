@@ -31,3 +31,7 @@ fish-deployment-6dcbf9fb76-vwf2z   1/1     Running   0          38m   10.42.0.25
 http://10.42.0.25:8080/shop/fish/family/Sphyrnidae
 
 sudo k3s kubectl logs fish-deployment-59548dcc57-vjk86
+
+docker build -t keywer/k3s-database-fishs:v1.0.0 -f ./src/main/k3s/database/Dockerfile .
+
+docker run -p 8082:8082 -p 9092:9092 -d -it keywer/k3s-database-fishs:v1.0.0
