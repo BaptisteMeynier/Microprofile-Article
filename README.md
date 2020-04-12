@@ -35,3 +35,14 @@ sudo k3s kubectl logs fish-deployment-59548dcc57-vjk86
 docker build -t keywer/k3s-database-fishs:v1.0.0 -f ./src/main/k3s/database/Dockerfile .
 
 docker run -p 8082:8082 -p 9092:9092 -d -it keywer/k3s-database-fishs:v1.0.0
+
+init container:
+
+java -cp <path_to_your_h2-*.jar> org.h2.tools.RunScript -url jdbc:h2:mem:testdb -script test.sql
+jdbc:h2:mem:testdb
+
+java -cp /home/baptiste/Resources/H2/2019-10-14/bin/h2-1.4.199.jar org.h2.tools.Server -web -webAllowOthers -webPort 8080 -tcp -tcpAllowOthers -tcpPort 1521 -baseDir ~/h2-data
+
+java -cp /home/baptiste/Resources/H2/2019-10-14/bin/h2-1.4.199.jar org.h2.tools.RunScript -user sa -showResults -url jdbc:h2:mem:testdb -script ./src/main/k3s/database/schema.sql
+java -cp /home/baptiste/Resources/H2/2019-10-14/bin/h2-1.4.199.jar org.h2.tools.RunScript -user sa -showResults -url jdbc:h2:tcp://localhost:1521/~/h2-data/fish -script ./src/main/k3s/database/schema.sql
+java -cp /home/baptiste/Resources/H2/2019-10-14/bin/h2-1.4.199.jar org.h2.tools.RunScript -user sa -showResults -url jdbc:h2:file:~/h2-data/fish -script ./src/main/k3s/database/schema.sql
