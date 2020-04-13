@@ -48,3 +48,17 @@ java -cp /home/baptiste/Resources/H2/2019-10-14/bin/h2-1.4.199.jar org.h2.tools.
 java -cp /home/baptiste/Resources/H2/2019-10-14/bin/h2-1.4.199.jar org.h2.tools.RunScript -user sa -showResults -url jdbc:h2:file:~/h2-data/fish -script ./src/main/k3s/database/schema.sql
 
 docker build -t keywer/k3s-init-database-fishs:v1.0.0 --network="host" -f ./src/main/k3s/database/init/Dockerfile .
+
+--------------------------
+
+docker build -t keywer/microprofile/k3s-init-database:v1.0.0 -f ./src/main/docker/db/init/Dockerfile .
+docker build -t keywer/microprofile/k3s-database:v1.0.0 -f ./src/main/docker/db/Dockerfile .
+
+docker save keywer/microprofile/k3s-init-database:v1.0.0 -o target/init-database.tar
+docker save keywer/microprofile/k3s-database:v1.0.0 -o target/database.tar
+
+sudo mv ./target/*.tar /var/lib/rancher/k3s/agent/images/
+
+sudo k3s crictl images
+
+sudo k3s kubectl create -f ./src/main/k3s/fishs-database.yaml

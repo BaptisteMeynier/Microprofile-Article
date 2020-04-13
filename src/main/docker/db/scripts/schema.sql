@@ -4,7 +4,7 @@ CREATE TABLE Family
 (
     id INT PRIMARY KEY NOT NULL,
     name VARCHAR(100),
-    waterType WaterType
+    water_type WaterType
 );
 
 CREATE TABLE Fish
