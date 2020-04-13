@@ -49,6 +49,8 @@ java -cp /home/baptiste/Resources/H2/2019-10-14/bin/h2-1.4.199.jar org.h2.tools.
 
 docker build -t keywer/k3s-init-database-fishs:v1.0.0 --network="host" -f ./src/main/k3s/database/init/Dockerfile .
 
+keywer/microprofile/k3s-init-database:v1.0.0
+
 --------------------------
 
 docker build -t keywer/microprofile/k3s-init-database:v1.0.0 -f ./src/main/docker/db/init/Dockerfile .
@@ -61,4 +63,8 @@ sudo mv ./target/*.tar /var/lib/rancher/k3s/agent/images/
 
 sudo k3s crictl images
 
-sudo k3s kubectl create -f ./src/main/k3s/fishs-database.yaml
+sudo k3s kubectl create -f ./src/main/k3s/fish-database.yaml
+
+sudo k3s kubectl get pods -o wide
+
+sudo kubectl exec -it fish-database -- /bin/bash

@@ -10,8 +10,8 @@ RUN curl http://www.h2database.com/h2-$RELEASE_DATE.zip -o h2.zip \
 
 RUN ln -s $(ls /h2/bin/*jar) /h2/bin/h2.jar
 
-EXPOSE 1521
+EXPOSE 1521 8082
 
-VOLUME /database/h2-data
+#VOLUME /database
 
-CMD java -jar /h2/bin/h2.jar -tcp -tcpAllowOthers -tcpPort 1521 -baseDir ${H2DATA}
+CMD java -jar /h2/bin/h2.jar -web -webAllowOthers -webPort 8082 -tcp -tcpAllowOthers  -tcpPort 1521 -baseDir ${H2DATA}

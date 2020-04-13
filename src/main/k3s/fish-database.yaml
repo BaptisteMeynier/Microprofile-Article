@@ -5,20 +5,21 @@ metadata:
   namespace: default
 spec:
   initContainers:
-    - name: fetch
+    - name: init-database
       image: keywer/microprofile/k3s-init-database:v1.0.0
       volumeMounts:
-        - mountPath: /database
-          name: dump
+        - name: database
+          mountPath: /database
   containers:
     - name: fish-database
       image: keywer/microprofile/k3s-database:v1.0.0
       imagePullPolicy: IfNotPresent
       volumeMounts:
-        - name: dump
+        - name: database
           mountPath: /database
       ports:
         - containerPort: 1521
+        - containerPort: 8082
   volumes:
     - emptyDir: {}
-      name: dump
+      name: database
