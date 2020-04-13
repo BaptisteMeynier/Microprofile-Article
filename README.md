@@ -46,3 +46,5 @@ java -cp /home/baptiste/Resources/H2/2019-10-14/bin/h2-1.4.199.jar org.h2.tools.
 java -cp /home/baptiste/Resources/H2/2019-10-14/bin/h2-1.4.199.jar org.h2.tools.RunScript -user sa -showResults -url jdbc:h2:mem:testdb -script ./src/main/k3s/database/schema.sql
 java -cp /home/baptiste/Resources/H2/2019-10-14/bin/h2-1.4.199.jar org.h2.tools.RunScript -user sa -showResults -url jdbc:h2:tcp://localhost:1521/~/h2-data/fish -script ./src/main/k3s/database/schema.sql
 java -cp /home/baptiste/Resources/H2/2019-10-14/bin/h2-1.4.199.jar org.h2.tools.RunScript -user sa -showResults -url jdbc:h2:file:~/h2-data/fish -script ./src/main/k3s/database/schema.sql
+
+docker build -t keywer/k3s-init-database-fishs:v1.0.0 --network="host" -f ./src/main/k3s/database/init/Dockerfile .

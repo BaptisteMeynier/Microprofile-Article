@@ -4,20 +4,22 @@ metadata:
   name: volume-test
   namespace: default
 spec:
+  initContainers:
+    - name: fetch
+      image: keywer/k3s-init-database-fishs:v1.0.0
+      command: ["./initdb.sh"]
+      volumeMounts:
+        - mountPath: /docker-entrypoint-initdb.d
+          name: dump
   containers:
     - name: volume-test
       image: keywer/k3s-database-fishs:v1.0.0
       imagePullPolicy: IfNotPresent
       volumeMounts:
-        - name: volv
-          mountPath: /h2-data
+        - name: dump
+          mountPath: /docker-entrypoint-initdb.d
       ports:
         - containerPort: 8082
-  initContainers:
-    - name: init-mydb
-      image: keywer/k3s-database-fishs:v1.0.0
-      command: ['sh', '-c', "until nslookup mydb.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo en attente de mydb; sleep 2; done"]
   volumes:
-    - name: volv
-      persistentVolumeClaim:
-        claimName: local-path-pvc
+    - emptyDir: {}
+      name: dump
