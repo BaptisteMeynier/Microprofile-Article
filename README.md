@@ -68,3 +68,5 @@ sudo k3s kubectl create -f ./src/main/k3s/fish-database.yaml
 sudo k3s kubectl get pods -o wide
 
 sudo kubectl exec -it fish-database -- /bin/bash
+
+sudo k3s kubectl logs fish-database
