@@ -51,6 +51,8 @@ docker build -t keywer/k3s-init-database-fishs:v1.0.0 --network="host" -f ./src/
 
 keywer/microprofile/k3s-init-database:v1.0.0
 
+sudo docker exec -it 8ca232ce5e7e /bin/bash
+
 --------------------------
 
 docker build -t keywer/microprofile/k3s-init-database:v1.0.0 -f ./src/main/docker/db/init/Dockerfile .
@@ -70,3 +72,5 @@ sudo k3s kubectl get pods -o wide
 sudo kubectl exec -it fish-database -- /bin/bash
 
 sudo k3s kubectl logs fish-database
+
+sudo k3s kubectl logs fish-database -c init-database

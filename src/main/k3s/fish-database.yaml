@@ -7,6 +7,7 @@ spec:
   initContainers:
     - name: init-database
       image: keywer/microprofile/k3s-init-database:v1.0.0
+      command: ['sh', '-c', '/tmp/createDatabase.sh']
       volumeMounts:
         - name: database
           mountPath: /database
