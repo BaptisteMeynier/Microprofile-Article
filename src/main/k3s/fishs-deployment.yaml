@@ -4,7 +4,7 @@ metadata:
   name: fish-deployment
   namespace: default
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: fish
@@ -14,7 +14,7 @@ spec:
         app: fish
     spec:
       containers:
-        - image: keywer/k3s-fishs:v1.0.0
+        - image: keywer/microprofile/k3s-fishs:v1.0.0
           name: k3s-fishs
           ports:
             - containerPort: 8080

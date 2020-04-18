@@ -12,14 +12,10 @@ RUN ln -s $(ls /h2/bin/*jar) /h2/bin/h2.jar
 
 EXPOSE 1521
 
-#VOLUME /database
-
 ADD ./src/main/docker/db/scripts/schema.sql /tmp
 ADD ./src/main/docker/db/scripts/data.sql /tmp
 ADD ./src/main/docker/db/init/createDatabase.sh /tmp
 
 RUN chmod -R 777 /tmp
-RUN java -jar /h2/bin/h2.jar -tcp -tcpAllowOthers -tcpPort 1521 -baseDir $H2DATA &
 
-#RUN java -cp /h2/bin/h2.jar org.h2.tools.RunScript -user sa -url jdbc:h2:file:/database/h2-data/fish -script /tmp/schema.sql
-#RUN java -cp /h2/bin/h2.jar org.h2.tools.RunScript -user sa -url jdbc:h2:file:/database/h2-data/fish -script /tmp/data.sql
+RUN java -jar /h2/bin/h2.jar -tcp -tcpAllowOthers -tcpPort 1521 -baseDir $H2DATA &

@@ -1,0 +1,4 @@
+FISH_JDBC_DRIVER=org.h2.Driver
+FISH_JDBC_URL=jdbc:h2:/database/h2-data/fish
+FISH_JDBC_USER=sa
+FISH_JDBC_PASSWORD=
