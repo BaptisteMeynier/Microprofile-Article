@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: fish-database
+  name: fishs-database
   namespace: default
 spec:
   initContainers:
@@ -12,7 +12,7 @@ spec:
         - name: database
           mountPath: /database
   containers:
-    - name: fish-database
+    - name: fishs-database
       image: keywer/microprofile/k3s-database:v1.0.0
       imagePullPolicy: IfNotPresent
       volumeMounts:
@@ -29,7 +29,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: fish-database
+  name: fishs-database
   namespace: default
 spec:
   type: NodePort
@@ -39,4 +39,4 @@ spec:
       protocol: TCP
       targetPort: 1521
   selector:
-    app: fish-database
+    app: fishs-database
