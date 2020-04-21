@@ -20,7 +20,23 @@ spec:
           mountPath: /database
       ports:
         - containerPort: 1521
-        - containerPort: 8082
   volumes:
     - emptyDir: {}
       name: database
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: fish-database
+  namespace: default
+spec:
+  type: NodePort
+  ports:
+    - name: client
+      port: 1521
+      protocol: TCP
+      targetPort: 1521
+  selector:
+    app: fish-database
