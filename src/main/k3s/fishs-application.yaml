@@ -4,25 +4,16 @@ metadata:
   name: fishs-application
   namespace: default
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: fishs-application
-  template:
-    metadata:
-      labels:
-        app: fishs-application
-    spec:
-      containers:
-        - name: fishs-application
-          image: keywer/microprofile/k3s-fishs:v1.0.0
-          envFrom:
-            - configMapRef:
-                name: k3s-fishs-config
-          ports:
-            - containerPort: 8080
-              name: server
-              protocol: TCP
+  containers:
+    - name: fishs-application
+      image: keywer/microprofile/k3s-application:v1.0.0
+      envFrom:
+        - configMapRef:
+            name: k3s-fishs-config
+      ports:
+        - containerPort: 8080
+          name: server
+          protocol: TCP
 
 ---
 
@@ -38,4 +29,4 @@ spec:
       protocol: TCP
       targetPort: 8080
   selector:
-    app: fish
+    app: fishs-application
