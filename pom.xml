@@ -122,6 +122,9 @@
                 <env>local</env>
             </properties>
             <build>
+                <filters>
+                    <filter>src/main/filters/${env}.properties</filter>
+                </filters>
                 <plugins>
                     <plugin>
                         <artifactId>maven-resources-plugin</artifactId>
@@ -148,6 +151,12 @@
                 </plugins>
             </build>
         </profile>
+        <profile>
+            <id>k3s</id>
+            <properties>
+                <env>k3s</env>
+            </properties>
+        </profile>
     </profiles>
 
     <build>
@@ -157,9 +166,6 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
-        <filters>
-            <filter>src/main/filters/${env}.properties</filter>
-        </filters>
         <plugins>
             <plugin>
                 <groupId>com.kumuluz.ee</groupId>

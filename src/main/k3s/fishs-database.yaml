@@ -44,5 +44,3 @@ spec:
   ports:
     - port: 1521
       targetPort: 1521
-    - port: 8082
-      targetPort: 8082
