@@ -79,6 +79,12 @@ sudo k3s kubectl get pods -o wide
 
 sudo kubectl exec -it fish-database -- /bin/bash
 
-sudo k3s kubectl logs fish-database
+sudo k3s kubectl logs fishs-database
 
-sudo k3s kubectl logs fish-database -c init-database
+sudo k3s kubectl logs fishs-database -c init-database
+
+sudo k3s kubectl logs fishs-application
+
+sudo k3s kubectl describe fishs-database-745b745667-pdg9p
+
+sudo k3s crictl rmi 46f889be77389

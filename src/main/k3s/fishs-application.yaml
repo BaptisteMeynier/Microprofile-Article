@@ -1,19 +1,26 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: fishs-application
   namespace: default
 spec:
-  containers:
-    - name: fishs-application
-      image: keywer/microprofile/k3s-application:v1.0.0
-      envFrom:
-        - configMapRef:
-            name: k3s-fishs-config
-      ports:
-        - containerPort: 8080
-          name: server
-          protocol: TCP
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fishs-application
+  template:
+    metadata:
+      labels:
+        app: fishs-application
+    spec:
+      containers:
+        - name: fishs-application
+          image: keywer/microprofile/k3s-application:v1.0.0
+          envFrom:
+            - configMapRef:
+                name: k3s-fishs-config
+          ports:
+            - containerPort: 8080
 
 ---
 
@@ -23,10 +30,9 @@ metadata:
   name: fishs-application
   namespace: default
 spec:
-  type: NodePort
-  ports:
-    - port: 8080
-      protocol: TCP
-      targetPort: 8080
   selector:
     app: fishs-application
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: LoadBalancer
