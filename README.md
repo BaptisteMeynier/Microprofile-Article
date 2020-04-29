@@ -88,3 +88,10 @@ sudo k3s kubectl logs fishs-application
 sudo k3s kubectl describe fishs-database-745b745667-pdg9p
 
 sudo k3s crictl rmi 46f889be77389
+
+http://192.168.1.37:8080/shop/fish/family/Sphyrnidae
+
+
+sudo k3s kubectl apply -f ./src/main/k3s/fishs-hpa.yaml
+
+sudo k3s kubectl apply -f ./src/main/k3s/fishs-secret.yaml

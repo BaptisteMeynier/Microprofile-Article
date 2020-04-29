@@ -19,6 +19,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: k3s-fishs-config
+            - secretRef:
+                name: k3s-fishs-secret
           ports:
             - containerPort: 8080
 
