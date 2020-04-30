@@ -21,6 +21,11 @@ spec:
                 name: k3s-fishs-config
             - secretRef:
                 name: k3s-fishs-secret
+          resources:
+            limits:
+              memory: 128Mi
+            requests:
+              memory: 64Mi
           ports:
             - containerPort: 8080
 

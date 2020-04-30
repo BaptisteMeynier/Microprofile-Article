@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11:latest
+FROM adoptopenjdk/openjdk11:debianslim-jre
 
 ENV RELEASE_DATE 2019-10-14
 ENV H2DATA /database/h2-data

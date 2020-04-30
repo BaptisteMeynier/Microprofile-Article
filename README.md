@@ -95,3 +95,5 @@ http://192.168.1.37:8080/shop/fish/family/Sphyrnidae
 sudo k3s kubectl apply -f ./src/main/k3s/fishs-hpa.yaml
 
 sudo k3s kubectl apply -f ./src/main/k3s/fishs-secret.yaml
+
+FISHS_DATABASE_PORT=tcp://10.43.237.73:1521

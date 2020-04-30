@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11:latest
+FROM adoptopenjdk/openjdk11:alpine-jre
 
 RUN mkdir /app
 
